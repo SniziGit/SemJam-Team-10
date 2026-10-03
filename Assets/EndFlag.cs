@@ -19,7 +19,7 @@ public class EndFlag : MonoBehaviour
 
         if (entryTracker == players.Length)
         {
-           onAllPlayersEntered?.Invoke();
+            Utility.InvokeAfter(this, ()=>{ onAllPlayersEntered?.Invoke(); },2f);
         }
     }
 
