@@ -3,7 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class MagneticObject : MonoBehaviour
 {
-   public  Rigidbody2D rb;
+    public  Rigidbody2D rb;
     public MagneticPole magneticPole;
 
     public float magneticForce = 10f;
@@ -38,6 +38,8 @@ public class MagneticObject : MonoBehaviour
     {
         if (currentMagnetRoutine != null) { StopCoroutine(currentMagnetRoutine); currentMagnetRoutine = null; }
         currentMagnetRoutine = StartCoroutine(ApplyMagneticForceCoroutine(source, MagneticBehaviour.Repel));
+
+
     }
     IEnumerator ApplyMagneticForceCoroutine(GameObject source, MagneticBehaviour behaviour)
     {

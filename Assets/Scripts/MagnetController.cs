@@ -21,9 +21,9 @@ public class MagnetController : MonoBehaviour
     public GameObject previewCircle;// the object that shows the range of the magnetic field, should be a circle with a transparent material
 
     //initialise magnetic attraction
- Vector3 attractionVector = Vector3.zero;
+    Vector3 attractionVector = Vector3.zero;
     //initialise magnetic repulsion
-  Vector3 repulsionVector = Vector3.zero;
+    Vector3 repulsionVector = Vector3.zero;
     // Update is called once per frame
     void Update()
     {
@@ -48,6 +48,7 @@ public class MagnetController : MonoBehaviour
             currentMagneticFieldSize = size;
             previewCircle.transform.localScale = Vector3.one * currentMagneticFieldSize;
         }
+
         if(!CheckInput() && wasPressingInput)
         {
             previewCircle.SetActive(false);
@@ -58,7 +59,7 @@ public class MagnetController : MonoBehaviour
             foreach (Collider2D col in magneticInEnvironment)
             {
                if(col.gameObject.TryGetComponent<MagneticObject>(out var magneticObject))
-                {
+               {
                     if(magneticObject == thisMagnet) continue;
                     magneticObject.ApplyMagneticForce(gameObject, pole);
                     Debug.Log($"Added magnetic force to {magneticObject.name}");
@@ -70,7 +71,7 @@ public class MagnetController : MonoBehaviour
                     {
                         attractionVector += transform.position - magneticObject.transform.position;
                     }
-                }
+               }
                 else
                 {
                     Debug.Log($"No magnetic object found on {col.gameObject.name}");
