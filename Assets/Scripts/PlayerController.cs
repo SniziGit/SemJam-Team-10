@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] GameObject player;
     public enum PlayerType { Aster, Roy }
     public PlayerType playerType;
 
@@ -25,8 +24,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        player = this.gameObject;
-        rb = player.GetComponent<Rigidbody2D>();
+        rb =GetComponent<Rigidbody2D>();
         defaultGravityScale = rb.gravityScale;
     }
 

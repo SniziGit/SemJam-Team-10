@@ -19,7 +19,13 @@ public class MagneticObject : MonoBehaviour
 
     public void ApplyMagneticForce(GameObject source,MagneticPole pole)
     {
-        if(pole == magneticPole)
+        if(pole == MagneticPole.Metal)
+        {
+            AttractTo(source);
+            return;
+        }
+        
+            if (pole == magneticPole)
         {
             RepelFrom(source);
         }
