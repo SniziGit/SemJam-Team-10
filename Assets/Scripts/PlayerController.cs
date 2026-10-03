@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
@@ -35,10 +36,12 @@ public class PlayerController : MonoBehaviour
         HandleInput();
         CheckGrounded();
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("KillPlane"))
+        Debug.Log("PlayerController: OnTriggerEnter called with " + other.name);
+        if (other.CompareTag("KillPlane"))
         {
+            Debug.Log("Player fell off the map. Resetting position.");
             transform.position = startPos;
             rb.linearVelocity = Vector3.zero;
         }
@@ -96,6 +99,16 @@ public class PlayerController : MonoBehaviour
         {
             rb.gravityScale = defaultGravityScale;
         }
+    }
+    public void StopGravity()
+    {
+        StartCoroutine(StopGravityRoutine());
+    }
+    private IEnumerator StopGravityRoutine()
+    {
+       rb.gravityScale = 0f;
+        yield return new WaitForSeconds(0.5f);
+        rb.gravityScale = defaultGravityScale;
     }
 
     private void OnDrawGizmosSelected()

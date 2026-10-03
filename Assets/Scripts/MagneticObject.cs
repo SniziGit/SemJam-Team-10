@@ -45,6 +45,9 @@ public class MagneticObject : MonoBehaviour
         if (currentMagnetRoutine != null) { StopCoroutine(currentMagnetRoutine); currentMagnetRoutine = null; }
         currentMagnetRoutine = StartCoroutine(ApplyMagneticForceCoroutine(source, MagneticBehaviour.Repel));
 
+        //Vector3 diff = transform.position - source.transform.position;
+        //rb.AddForce(diff * magneticForce, ForceMode2D.Impulse);
+
 
     }
     IEnumerator ApplyMagneticForceCoroutine(GameObject source, MagneticBehaviour behaviour)
