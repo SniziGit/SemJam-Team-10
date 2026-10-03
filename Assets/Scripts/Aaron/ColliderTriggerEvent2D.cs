@@ -3,7 +3,7 @@ using UnityEngine.Events;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public class ColliderTriggerEvent : MonoBehaviour // this script uses unity events to perform any public function on the player during collision events
+public class ColliderTriggerEvent2D : MonoBehaviour // this script uses unity events to perform any public function on the player during collision events
 {
     private Collider trigger;
     private Rigidbody rb;
@@ -36,7 +36,7 @@ public class ColliderTriggerEvent : MonoBehaviour // this script uses unity even
         if (rb) rb.isKinematic = true; // Make sure the Rigidbody is kinematic to avoid physics interactions
         //rb.useGravity = false; // Disable gravity if not needed
     }
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (!enabled) return;//allow enabling and disabling of this script to affect event firing
         if (oneTime && hasTriggered) return;
@@ -64,7 +64,7 @@ public class ColliderTriggerEvent : MonoBehaviour // this script uses unity even
         onTriggerExit?.Invoke();
     }
    
-    void OnTriggerExit(Collider other)
+    void OnTriggerExit2D(Collider2D other)
     {
         if (!enabled) return;//allow enabling and disabling of this script to affect event firing
         if (onTriggerExit != null && other.CompareTag(respondToTag))

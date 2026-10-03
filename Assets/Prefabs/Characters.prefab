@@ -27,7 +27,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.00000011921, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5621897555202767163}
@@ -77,12 +77,12 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1637824157
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -2777724034978598972, guid: fcf10ef8ff8af864fbb6fc198d20c5e9, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.3764706}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5019608}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -303,7 +303,7 @@ GameObject:
   - component: {fileID: 4212280630633575815}
   - component: {fileID: 6180029889752316815}
   - component: {fileID: 5533146329156827558}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Roy
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -319,7 +319,7 @@ Transform:
   m_GameObject: {fileID: 1723893818668405614}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.74, y: 0.11, z: 0}
+  m_LocalPosition: {x: -1.71, y: -10.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -363,8 +363,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.15}
-  m_Size: {x: 1, y: 1.7}
+  m_Offset: {x: 0, y: -0.111370325}
+  m_Size: {x: 1.2, y: 2.4}
   m_Direction: 0
 --- !u!50 &6995986992845485972
 Rigidbody2D:
@@ -378,18 +378,18 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 2
+  m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: 30901adaa3ce05343b1af6a80258de36, type: 2}
+  m_Material: {fileID: 6200000, guid: 30459498663c9214198d5f5caa52714d, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
@@ -406,16 +406,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayersController
   playerType: 1
-  maxSpeed: 8
-  acceleration: 10
+  animator: {fileID: 0}
+  maxSpeed: 4
+  acceleration: 50
   groundFriction: 2
   airFriction: 10
-  fallGravityMultiplier: 2
+  fallGravityMultiplier: 5
   groundCheck: {fileID: 3342618267130145529}
   groundCheckRadius: 0.5
   groundLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 9
 --- !u!114 &6180029889752316815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -435,7 +436,7 @@ MonoBehaviour:
   thisMagnet: {fileID: 5533146329156827558}
   thisMagneticForce: 10
   magneticFieldMin: 0.1
-  magneticFieldMax: 5
+  magneticFieldMax: 6
   currentMagneticFieldSize: 0
   fieldExpandSpeed: 2
   previewCircle: {fileID: 2423552496499853064}
@@ -546,7 +547,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.00000011921, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5360099351628826881}
@@ -596,12 +597,12 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1637824157
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -2777724034978598972, guid: fcf10ef8ff8af864fbb6fc198d20c5e9, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.3764706}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5019608}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -636,7 +637,7 @@ Transform:
   m_GameObject: {fileID: 3618837666138360514}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.91, z: 0}
+  m_LocalPosition: {x: 0, y: -1.11, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -935,7 +936,7 @@ Transform:
   m_GameObject: {fileID: 8443288653229292706}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.9100001, z: 0}
+  m_LocalPosition: {x: 0, y: -1.1100001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -991,7 +992,7 @@ GameObject:
   - component: {fileID: 3980234312960134046}
   - component: {fileID: 3936473812840177180}
   - component: {fileID: 65341753859773983}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Aster
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1007,7 +1008,7 @@ Transform:
   m_GameObject: {fileID: 8790168835119637427}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.1676, y: 0.1, z: 0}
+  m_LocalPosition: {x: -1.51, y: -0.37, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1051,8 +1052,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.15}
-  m_Size: {x: 1, y: 1.7}
+  m_Offset: {x: 0, y: -0.103524685}
+  m_Size: {x: 1.2, y: 2.4}
   m_Direction: 0
 --- !u!50 &4534784195098825187
 Rigidbody2D:
@@ -1070,14 +1071,14 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: 30901adaa3ce05343b1af6a80258de36, type: 2}
+  m_Material: {fileID: 6200000, guid: 30459498663c9214198d5f5caa52714d, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
@@ -1094,16 +1095,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   playerType: 0
-  maxSpeed: 8
-  acceleration: 10
+  animator: {fileID: 0}
+  maxSpeed: 4
+  acceleration: 50
   groundFriction: 2
   airFriction: 10
-  fallGravityMultiplier: 2
+  fallGravityMultiplier: 5
   groundCheck: {fileID: 5153708948910933550}
   groundCheckRadius: 0.5
   groundLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 9
 --- !u!114 &3936473812840177180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1123,7 +1125,7 @@ MonoBehaviour:
   thisMagnet: {fileID: 65341753859773983}
   thisMagneticForce: 10
   magneticFieldMin: 0.1
-  magneticFieldMax: 5
+  magneticFieldMax: 6
   currentMagneticFieldSize: 0
   fieldExpandSpeed: 2
   previewCircle: {fileID: 2602595444696738789}
