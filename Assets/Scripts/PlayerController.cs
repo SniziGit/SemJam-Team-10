@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
@@ -20,9 +21,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private bool isGrounded;
     private Vector2 moveInput;
-    public float defaultGravityScale;
+    private float defaultGravityScale;
     private Vector3 startPos;
-    [SerializeField] GameObject winEffectPrefab;
 
     void Start()
     {
@@ -35,6 +35,16 @@ public class PlayerController : MonoBehaviour
     {
         HandleInput();
         CheckGrounded();
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("PlayerController: OnTriggerEnter called with " + other.name);
+        if (other.CompareTag("KillPlane"))
+        {
+            Debug.Log("Player fell off the map. Resetting position.");
+            transform.position = startPos;
+            rb.linearVelocity = Vector3.zero;
+        }
     }
     void FixedUpdate()
     {
@@ -80,15 +90,25 @@ public class PlayerController : MonoBehaviour
         // Clamp horizontal speed
         rb.linearVelocity = new Vector2(Mathf.Clamp(rb.linearVelocity.x, -maxSpeed, maxSpeed), rb.linearVelocity.y);
 
-        //// Apply fall gravity
-        //if (rb.linearVelocity.y < 0)
-        //{
-        //    rb.gravityScale = defaultGravityScale * fallGravityMultiplier;
-        //}
-        //else
-        //{
-        //    rb.gravityScale = defaultGravityScale;
-        //}
+        // Apply fall gravity
+        if (rb.linearVelocity.y < 0)
+        {
+            rb.gravityScale = defaultGravityScale * fallGravityMultiplier;
+        }
+        else
+        {
+            rb.gravityScale = defaultGravityScale;
+        }
+    }
+    public void StopGravity()
+    {
+        StartCoroutine(StopGravityRoutine());
+    }
+    private IEnumerator StopGravityRoutine()
+    {
+       rb.gravityScale = 0f;
+        yield return new WaitForSeconds(0.5f);
+        rb.gravityScale = defaultGravityScale;
     }
 
     private void OnDrawGizmosSelected()
@@ -97,20 +117,6 @@ public class PlayerController : MonoBehaviour
         {
             Gizmos.color = Color.green;
             Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("KillPlane"))
-        {
-            transform.position = startPos;
-            rb.linearVelocity = Vector2.zero;
-        }
-        else if (collision.gameObject.CompareTag("Player"))
-        {
-            rb.linearVelocity = Vector2.zero;
-            Instantiate(winEffectPrefab, transform.position, Quaternion.identity);
         }
     }
 }

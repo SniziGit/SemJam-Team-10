@@ -1,11 +1,13 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using System.Collections;
 
 public class MagnetController : MonoBehaviour
 {
     public ControlType controlType = ControlType.WASD;
     public bool wasPressingInput;
+    public PlayerController playerController;
 
     public MagneticPole pole;
 
@@ -20,15 +22,25 @@ public class MagnetController : MonoBehaviour
 
     public GameObject previewCircle;// the object that shows the range of the magnetic field, should be a circle with a transparent material
 
+    float counter = 0f;
     //initialise magnetic attraction
     Vector3 attractionVector = Vector3.zero;
     //initialise magnetic repulsion
     Vector3 repulsionVector = Vector3.zero;
+
+    private void Awake()
+    {
+        playerController = GetComponent<PlayerController>();
+    }
     // Update is called once per frame
     void Update()
     {
         if(CheckInput() )// when start pressing, create field, when stop pressing apply magnetic force to all magnetic objects in range
         {
+            if(!wasPressingInput)
+            {
+                counter = 0f;
+            }
             previewCircle.SetActive(true);
             /*
             int direction = 1;
@@ -43,7 +55,8 @@ public class MagnetController : MonoBehaviour
             }
             float size = Mathf.Lerp(magneticFieldMin,magneticFieldMax,Time.deltaTime * fieldExpandSpeed * direction);
             */
-            float sine = Mathf.Sin(Time.time * fieldExpandSpeed);
+            counter += Time.deltaTime;
+            float sine = Mathf.Sin(counter * fieldExpandSpeed);
             float size = Mathf.Lerp(magneticFieldMin, magneticFieldMax, (sine + 1f) / 2f);
             currentMagneticFieldSize = size;
             previewCircle.transform.localScale = Vector3.one * currentMagneticFieldSize;
@@ -51,11 +64,12 @@ public class MagnetController : MonoBehaviour
 
         if(!CheckInput() && wasPressingInput)
         {
+            counter = 0f;
             previewCircle.SetActive(false);
             attractionVector = Vector3.zero;
             repulsionVector = Vector3.zero;
             //collect colliders
-            Collider2D[] magneticInEnvironment = Physics2D.OverlapCircleAll(transform.position, currentMagneticFieldSize,1 << LayerMask.NameToLayer("Default"));
+            Collider2D[] magneticInEnvironment = Physics2D.OverlapCircleAll(transform.position, currentMagneticFieldSize,Physics.AllLayers);
             foreach (Collider2D col in magneticInEnvironment)
             {
                if(col.gameObject.TryGetComponent<MagneticObject>(out var magneticObject))
@@ -78,6 +92,7 @@ public class MagnetController : MonoBehaviour
                 }
             }
             Vector3 finalVector = Vector3.Normalize(attractionVector + repulsionVector);
+            if(playerController)playerController.StopGravity();
             if (thisMagnet) thisMagnet.rb.AddForce(finalVector * thisMagneticForce, ForceMode2D.Impulse);
             // apply magnetic force to all magnetic objects in range
             currentMagneticFieldSize = 0f;
@@ -88,7 +103,7 @@ public class MagnetController : MonoBehaviour
     }
    
     
-
+ 
     
     bool CheckInput()
     {
