@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Movement Settings")]
     [SerializeField] float moveSpeed = 5f;
-    [SerializeField] float jumpForce = 10f;
+    [SerializeField] float jumpForce = 10f;// Dani the characters should not jump btw
     [SerializeField] bool canJump = true;
 
 
