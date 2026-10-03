@@ -21,9 +21,11 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded;
     private Vector2 moveInput;
     private float defaultGravityScale;
+    private Vector3 startPos;
 
     void Start()
     {
+        startPos = transform.position;
         rb =GetComponent<Rigidbody2D>();
         defaultGravityScale = rb.gravityScale;
     }
@@ -33,7 +35,14 @@ public class PlayerController : MonoBehaviour
         HandleInput();
         CheckGrounded();
     }
-
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("KillPlane"))
+        {
+            transform.position = startPos;
+            rb.linearVelocity = Vector3.zero;
+        }
+    }
     void FixedUpdate()
     {
         ApplyMovement();

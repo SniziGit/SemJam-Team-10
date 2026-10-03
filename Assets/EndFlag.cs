@@ -3,14 +3,14 @@ using UnityEngine.Events;
 
 public class EndFlag : MonoBehaviour
 {
-    private int entryTracker = 0;
-    private GameObject[] players;
+    public int entryTracker = 0;
+    public GameObject[] players;
     public UnityEvent onAllPlayersEntered;
     private void Start()
     {
         players = GameObject.FindGameObjectsWithTag("Player");
     }
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("Player"))
         {
