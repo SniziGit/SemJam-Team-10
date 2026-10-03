@@ -20,8 +20,9 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private bool isGrounded;
     private Vector2 moveInput;
-    private float defaultGravityScale;
+    public float defaultGravityScale;
     private Vector3 startPos;
+    [SerializeField] GameObject winEffectPrefab;
 
     void Start()
     {
@@ -34,14 +35,6 @@ public class PlayerController : MonoBehaviour
     {
         HandleInput();
         CheckGrounded();
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.CompareTag("KillPlane"))
-        {
-            transform.position = startPos;
-            rb.linearVelocity = Vector3.zero;
-        }
     }
     void FixedUpdate()
     {
@@ -87,15 +80,15 @@ public class PlayerController : MonoBehaviour
         // Clamp horizontal speed
         rb.linearVelocity = new Vector2(Mathf.Clamp(rb.linearVelocity.x, -maxSpeed, maxSpeed), rb.linearVelocity.y);
 
-        // Apply fall gravity
-        if (rb.linearVelocity.y < 0)
-        {
-            rb.gravityScale = defaultGravityScale * fallGravityMultiplier;
-        }
-        else
-        {
-            rb.gravityScale = defaultGravityScale;
-        }
+        //// Apply fall gravity
+        //if (rb.linearVelocity.y < 0)
+        //{
+        //    rb.gravityScale = defaultGravityScale * fallGravityMultiplier;
+        //}
+        //else
+        //{
+        //    rb.gravityScale = defaultGravityScale;
+        //}
     }
 
     private void OnDrawGizmosSelected()
@@ -104,6 +97,20 @@ public class PlayerController : MonoBehaviour
         {
             Gizmos.color = Color.green;
             Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("KillPlane"))
+        {
+            transform.position = startPos;
+            rb.linearVelocity = Vector2.zero;
+        }
+        else if (collision.gameObject.CompareTag("Player"))
+        {
+            rb.linearVelocity = Vector2.zero;
+            Instantiate(winEffectPrefab, transform.position, Quaternion.identity);
         }
     }
 }
