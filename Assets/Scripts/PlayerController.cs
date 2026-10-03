@@ -9,7 +9,6 @@ public class PlayerController : MonoBehaviour
     [Header("Movement Settings")]
     [SerializeField] float maxSpeed = 8f;
     [SerializeField] float acceleration = 20f;
-    [SerializeField] float jumpForce = 12f;
     [SerializeField] float groundFriction = 5f;
     [SerializeField] float airFriction = 0.5f;
     [SerializeField] float fallGravityMultiplier = 2f;
@@ -29,7 +28,6 @@ public class PlayerController : MonoBehaviour
         player = this.gameObject;
         rb = player.GetComponent<Rigidbody2D>();
         defaultGravityScale = rb.gravityScale;
-        groundCheckRadius = groundCheck.gameObject.GetComponent<CircleCollider2D>().radius;
     }
 
     void Update()
@@ -49,19 +47,11 @@ public class PlayerController : MonoBehaviour
 
         if (playerType == PlayerType.Aster)
         {
-            if (Input.GetKey(KeyCode.W) && isGrounded)
-            {
-                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-            }
             if (Input.GetKey(KeyCode.A)) moveInput.x = -1f;
             if (Input.GetKey(KeyCode.D)) moveInput.x = 1f;
         }
         else if (playerType == PlayerType.Roy)
         {
-            if (Input.GetKey(KeyCode.UpArrow) && isGrounded)
-            {
-                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-            }
             if (Input.GetKey(KeyCode.LeftArrow)) moveInput.x = -1f;
             if (Input.GetKey(KeyCode.RightArrow)) moveInput.x = 1f;
         }
