@@ -1233,6 +1233,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &933146086 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1723893818668405614, guid: f4b6773b12abd1d459e6a2249febbda9, type: 3}
+  m_PrefabInstance: {fileID: 8845057687404629153}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &933146092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 933146086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5312a8a3b68ff0b4d99bea9d5523bf9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MagnetController
+  controlType: 0
+  wasPressingInput: 0
+  pole: 0
+  thisMagnet: {fileID: 0}
+  thisMagneticForce: 2
+  magneticFieldMin: 0.1
+  magneticFieldMax: 5
+  currentMagneticFieldSize: 0
+  fieldExpandSpeed: 2
+  previewCircle: {fileID: 0}
 --- !u!1 &1046360389
 GameObject:
   m_ObjectHideFlags: 0
@@ -1290,6 +1317,7 @@ GameObject:
   - component: {fileID: 1224796217}
   - component: {fileID: 1224796216}
   - component: {fileID: 1224796218}
+  - component: {fileID: 1224796219}
   m_Layer: 3
   m_Name: S Cube
   m_TagString: Untagged
@@ -1444,6 +1472,65 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1224796219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224796214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a51f256ff08569d4bb7e8411934ebe3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MagneticObject
+  rb: {fileID: 0}
+  magneticPole: 1
+  magneticForce: 10
+  attractionDuration: 1
+--- !u!1 &1740953158 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8790168835119637427, guid: f4b6773b12abd1d459e6a2249febbda9, type: 3}
+  m_PrefabInstance: {fileID: 8845057687404629153}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1740953164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740953158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a51f256ff08569d4bb7e8411934ebe3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MagneticObject
+  rb: {fileID: 0}
+  magneticPole: 0
+  magneticForce: 10
+  attractionDuration: 1
+--- !u!114 &1740953165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740953158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5312a8a3b68ff0b4d99bea9d5523bf9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MagnetController
+  controlType: 0
+  wasPressingInput: 0
+  pole: 0
+  thisMagnet: {fileID: 1740953164}
+  thisMagneticForce: 2
+  magneticFieldMin: 0.1
+  magneticFieldMax: 5
+  currentMagneticFieldSize: 0
+  fieldExpandSpeed: 2
+  previewCircle: {fileID: 0}
 --- !u!1 &1950003665
 GameObject:
   m_ObjectHideFlags: 0
@@ -1456,6 +1543,7 @@ GameObject:
   - component: {fileID: 1950003668}
   - component: {fileID: 1950003667}
   - component: {fileID: 1950003669}
+  - component: {fileID: 1950003670}
   m_Layer: 3
   m_Name: N Cube
   m_TagString: Untagged
@@ -1610,6 +1698,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1950003670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950003665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a51f256ff08569d4bb7e8411934ebe3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MagneticObject
+  rb: {fileID: 0}
+  magneticPole: 0
+  magneticForce: 10
+  attractionDuration: 1
 --- !u!1001 &8845057687404629153
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1665,7 +1769,16 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8790168835119637427, guid: f4b6773b12abd1d459e6a2249febbda9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1740953165}
+    - targetCorrespondingSourceObject: {fileID: 8790168835119637427, guid: f4b6773b12abd1d459e6a2249febbda9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1740953164}
+    - targetCorrespondingSourceObject: {fileID: 1723893818668405614, guid: f4b6773b12abd1d459e6a2249febbda9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 933146092}
   m_SourcePrefab: {fileID: 100100000, guid: f4b6773b12abd1d459e6a2249febbda9, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
