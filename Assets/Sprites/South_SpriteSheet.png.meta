@@ -136,7 +136,7 @@ TextureImporter:
         width: 143
         height: 309
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -158,7 +158,7 @@ TextureImporter:
         width: 189
         height: 301
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -175,12 +175,12 @@ TextureImporter:
       name: South_SpriteSheet_2
       rect:
         serializedVersion: 2
-        x: 408
+        x: 409
         y: 24
-        width: 170
+        width: 135
         height: 300
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -197,12 +197,12 @@ TextureImporter:
       name: South_SpriteSheet_3
       rect:
         serializedVersion: 2
-        x: 588
-        y: 23
-        width: 189
+        x: 559
+        y: 25
+        width: 160
         height: 301
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -219,12 +219,12 @@ TextureImporter:
       name: South_SpriteSheet_4
       rect:
         serializedVersion: 2
-        x: 794
+        x: 728
         y: 24
         width: 177
         height: 300
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -241,12 +241,12 @@ TextureImporter:
       name: South_SpriteSheet_5
       rect:
         serializedVersion: 2
-        x: 971
-        y: 23
-        width: 170
+        x: 914
+        y: 18
+        width: 118
         height: 304
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -259,11 +259,55 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: South_SpriteSheet_6
+      rect:
+        serializedVersion: 2
+        x: 1065
+        y: 19
+        width: 158
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bb6986536ef45d418b5fe1b0ca91576
+      internalID: 33769368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: South_SpriteSheet_7
+      rect:
+        serializedVersion: 2
+        x: 1245
+        y: 21
+        width: 151
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38508fe7792563a409abdc6210079a74
+      internalID: -976625439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5556f0ec38b6fad4f80ebe9dedc252cf
     internalID: 0
     vertices: []
     indices: 
@@ -279,6 +323,8 @@ TextureImporter:
       South_SpriteSheet_3: -8187884016077254137
       South_SpriteSheet_4: -3968996874215306495
       South_SpriteSheet_5: -72283905212993030
+      South_SpriteSheet_6: 33769368
+      South_SpriteSheet_7: -976625439
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -19,10 +19,14 @@ public class LevelSwitcher : MonoBehaviour
         }
     }
     */
-    private void Awake()
+    private void Start()
     {
-        if (fadeOutBlack ) fadeOutBlack.SetActive(true);// smooth transition
-    }
+        if (fadeOutBlack)
+        {
+           fadeOutBlack.SetActive(true);
+            Utility.InvokeAfter(this, () => { UIManager.Instance.CloseUI(fadeOutBlack); },0.1f);
+        }
+        }
     public void SetLevelName(string name)
     {
         levelName = name;

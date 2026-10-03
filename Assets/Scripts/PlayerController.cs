@@ -5,7 +5,7 @@ public class PlayerController : MonoBehaviour
 {
     public enum PlayerType { Aster, Roy }
     public PlayerType playerType;
-    private Animator animator;
+    public Animator animator;
 
     [Header("Movement Settings")]
     [SerializeField] float maxSpeed = 8f;
@@ -94,7 +94,7 @@ public class PlayerController : MonoBehaviour
     private void ApplyMovement()
     {
         // Apply acceleration based on input
-        if (moveInput.x != 0)
+        if (Mathf.Abs(moveInput.x) > 0)
         {
             rb.AddForce(moveInput.x * acceleration * Vector2.right, ForceMode2D.Force);
             animator.SetFloat("Speed", 1);
