@@ -175,10 +175,10 @@ TextureImporter:
       name: North_SpriteSheet_2
       rect:
         serializedVersion: 2
-        x: 409
-        y: 25
-        width: 168
-        height: 297
+        x: 405
+        y: 24
+        width: 142
+        height: 306
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -197,10 +197,10 @@ TextureImporter:
       name: North_SpriteSheet_3
       rect:
         serializedVersion: 2
-        x: 589
-        y: 24
-        width: 187
-        height: 298
+        x: 557
+        y: 25
+        width: 168
+        height: 297
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -219,10 +219,10 @@ TextureImporter:
       name: North_SpriteSheet_4
       rect:
         serializedVersion: 2
-        x: 795
-        y: 25
-        width: 175
-        height: 297
+        x: 737
+        y: 24
+        width: 187
+        height: 298
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -241,10 +241,10 @@ TextureImporter:
       name: North_SpriteSheet_5
       rect:
         serializedVersion: 2
-        x: 972
+        x: 927
         y: 24
-        width: 168
-        height: 298
+        width: 142
+        height: 306
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -255,6 +255,50 @@ TextureImporter:
       bones: []
       spriteID: 111cee3478a2c4530800000000000000
       internalID: 3840491342688862481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: North_SpriteSheet_6
+      rect:
+        serializedVersion: 2
+        x: 1083
+        y: 25
+        width: 175
+        height: 297
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddeed9ddb10a58340b8fed16e7a1548c
+      internalID: -42196100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: North_SpriteSheet_7
+      rect:
+        serializedVersion: 2
+        x: 1260
+        y: 24
+        width: 168
+        height: 298
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e16b4b56db0e6384489074637fe35186
+      internalID: -1106782776
       vertices: []
       indices: 
       edges: []
@@ -273,7 +317,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":154.0,"y":307.0},"gridSpriteOffset":{"x":51.0,"y":28.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       North_SpriteSheet_0: 5154913138140815241
       North_SpriteSheet_1: 3390109106860753277
@@ -281,6 +325,8 @@ TextureImporter:
       North_SpriteSheet_3: 2523562858465882636
       North_SpriteSheet_4: -984476435243071630
       North_SpriteSheet_5: 3840491342688862481
+      North_SpriteSheet_6: -42196100
+      North_SpriteSheet_7: -1106782776
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

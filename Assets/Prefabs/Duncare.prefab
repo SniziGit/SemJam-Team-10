@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1946501621435396233}
   - component: {fileID: 6083895459752767821}
   m_Layer: 0
-  m_Name: Completion Flag
+  m_Name: Duncare
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

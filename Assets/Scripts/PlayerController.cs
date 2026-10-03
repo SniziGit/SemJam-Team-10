@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour
 {
     public enum PlayerType { Aster, Roy }
     public PlayerType playerType;
+    private Animator animator;
 
     [Header("Movement Settings")]
     [SerializeField] float maxSpeed = 8f;
@@ -29,6 +30,7 @@ public class PlayerController : MonoBehaviour
         startPos = transform.position;
         rb =GetComponent<Rigidbody2D>();
         defaultGravityScale = rb.gravityScale;
+        animator = GetComponentInChildren<Animator>();
     }
 
     void Update()
@@ -57,19 +59,36 @@ public class PlayerController : MonoBehaviour
 
         if (playerType == PlayerType.Aster)
         {
-            if (Input.GetKey(KeyCode.A)) moveInput.x = -1f;
-            if (Input.GetKey(KeyCode.D)) moveInput.x = 1f;
+            if (Input.GetKey(KeyCode.A))
+            {
+                moveInput.x = -1f;
+                transform.localScale = new Vector3(-1, 1, 1); // Flip sprite to face left
+            }
+            if (Input.GetKey(KeyCode.D))
+            {
+                moveInput.x = 1f;
+                transform.localScale = new Vector3(1, 1, 1); // Flip sprite to face right
+            }
         }
         else if (playerType == PlayerType.Roy)
         {
-            if (Input.GetKey(KeyCode.LeftArrow)) moveInput.x = -1f;
-            if (Input.GetKey(KeyCode.RightArrow)) moveInput.x = 1f;
+            if (Input.GetKey(KeyCode.LeftArrow))
+            {
+                moveInput.x = -1f;
+                transform.localScale = new Vector3(-1, 1, 1); // Flip sprite to face left
+            }
+            if (Input.GetKey(KeyCode.RightArrow))
+            {
+                moveInput.x = 1f;
+                transform.localScale = new Vector3(1, 1, 1); // Flip sprite to face right
+            }
         }
     }
 
     private void CheckGrounded()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+        animator.SetBool("IsGrounded", isGrounded);
     }
 
     private void ApplyMovement()
@@ -78,6 +97,11 @@ public class PlayerController : MonoBehaviour
         if (moveInput.x != 0)
         {
             rb.AddForce(moveInput.x * acceleration * Vector2.right, ForceMode2D.Force);
+            animator.SetFloat("Speed", 1);
+        }
+        else
+        {
+            animator.SetFloat("Speed", 0);
         }
 
         // Apply friction
