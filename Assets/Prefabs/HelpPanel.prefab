@@ -2639,6 +2639,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4072990656582812295}
   - component: {fileID: 4055167851320969387}
+  - component: {fileID: 2552037268032975010}
   m_Layer: 5
   m_Name: HelpPanel
   m_TagString: Untagged
@@ -2675,6 +2676,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4433188384719564999}
   m_CullTransparentMesh: 1
+--- !u!114 &2552037268032975010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4433188384719564999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b55e5b32141f1ca4290015982db6e0fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PauseGame
+  pausePanel: {fileID: 8918957805243153307}
+  players: []
 --- !u!1 &4523136417183348487
 GameObject:
   m_ObjectHideFlags: 0

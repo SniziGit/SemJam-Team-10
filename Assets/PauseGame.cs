@@ -20,7 +20,7 @@ public class PauseGame : MonoBehaviour
 
         if (isPaused)
         {
-            pausePanel.SetActive(true);
+         UIManager.Instance.OpenUI(pausePanel);
             Time.timeScale = 0f;
             foreach (var player in players)
             {
@@ -30,7 +30,7 @@ public class PauseGame : MonoBehaviour
         }
         else
         {
-            pausePanel.SetActive(false);
+           UIManager.Instance.CloseUI(pausePanel);
             Time.timeScale = 1f;
             foreach (var player in players)
             {
