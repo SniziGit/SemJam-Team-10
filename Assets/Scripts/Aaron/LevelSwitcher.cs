@@ -41,6 +41,7 @@ public class LevelSwitcher : MonoBehaviour
     {
         //if (levelName ) { LevelName = levelName; }
         if (fadeToBlack != null) UIManager.Instance.OpenUI(fadeToBlack);
+        gameObject.SetActive(true);
         StartCoroutine(delayLoad(LevelName));
     }
     private IEnumerator delayLoad(string LevelName)
