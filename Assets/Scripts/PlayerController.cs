@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 startPos;
     private float footstepTimer;
     private bool wasMoving;
+    private bool inputEnabled = true;
 
     void Start()
     {
@@ -66,6 +67,12 @@ public class PlayerController : MonoBehaviour
 
     private void HandleInput()
     {
+        if (!inputEnabled)
+        {
+            moveInput = Vector2.zero;
+            return;
+        }
+
         moveInput = Vector2.zero;
 
         if (playerType == PlayerType.Aster)
@@ -201,5 +208,10 @@ public class PlayerController : MonoBehaviour
             Gizmos.color = Color.green;
             Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
         }
+    }
+
+    public void SetInputEnabled(bool enabled)
+    {
+        inputEnabled = enabled;
     }
 }
