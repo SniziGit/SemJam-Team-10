@@ -2749,7 +2749,7 @@ Transform:
   m_GameObject: {fileID: 527591368}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.32, y: 4.66, z: 0}
+  m_LocalPosition: {x: -10.52, y: 4.64, z: 0}
   m_LocalScale: {x: 0.6411463, y: 0.7525363, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -4158,7 +4158,7 @@ Transform:
   m_GameObject: {fileID: 693442018}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.07, y: 4.03, z: 0}
+  m_LocalPosition: {x: -1.86, y: 4.03, z: 0}
   m_LocalScale: {x: 1.450935, y: 6.532586, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -9603,7 +9603,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3936473812840177180, guid: f4b6773b12abd1d459e6a2249febbda9, type: 3}
       propertyPath: magneticFieldMax
-      value: 10
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3936473812840177180, guid: f4b6773b12abd1d459e6a2249febbda9, type: 3}
       propertyPath: thisMagneticForce
@@ -9615,7 +9615,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6180029889752316815, guid: f4b6773b12abd1d459e6a2249febbda9, type: 3}
       propertyPath: magneticFieldMax
-      value: 10
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6180029889752316815, guid: f4b6773b12abd1d459e6a2249febbda9, type: 3}
       propertyPath: thisMagneticForce
