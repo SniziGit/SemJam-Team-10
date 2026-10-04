@@ -13,7 +13,7 @@ public class MagneticObject : MonoBehaviour
     private Coroutine currentMagnetRoutine;
     private void Awake()
     {
-       rb = GetComponent<Rigidbody2D>();
+       if(!rb)rb = GetComponent<Rigidbody2D>();
         rb.freezeRotation = true;
     }
 

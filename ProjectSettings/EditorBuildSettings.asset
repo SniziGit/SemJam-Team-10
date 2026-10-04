@@ -6,17 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: e02fb6898ba008e4e88006629e2573eb
+  - enabled: 1
     path: Assets/Scenes/Level1.unity
     guid: 2a79a7878f977ef48b3812a77666a60c
   - enabled: 1
     path: Assets/Scenes/Level2.unity
     guid: f0647daa3c77ff5479d0db04df010fcd
   - enabled: 1
-    path: Assets/Scenes/Daniel Scene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/Scenes/Level3.unity
+    guid: 4e72ff10690da3847850e58ebed6b10d
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
-    guid: e02fb6898ba008e4e88006629e2573eb
+    path: Assets/Scenes/Credits.unity
+    guid: 94067527ca2229b4cbe456ceefb45685
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
