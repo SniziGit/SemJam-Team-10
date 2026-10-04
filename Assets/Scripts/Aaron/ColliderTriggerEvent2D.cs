@@ -2,10 +2,10 @@
 using UnityEngine.Events;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Rigidbody2D))]
 public class ColliderTriggerEvent2D : MonoBehaviour // this script uses unity events to perform any public function on the player during collision events
 {
-    private Collider trigger;
+    private Collider2D trigger;
     private Rigidbody rb;
     public string respondToTag = "Player";
     public UnityEvent onTriggerEnter;
@@ -18,19 +18,19 @@ public class ColliderTriggerEvent2D : MonoBehaviour // this script uses unity ev
 
     private void OnValidate() // initialise the sphere collider if it is not there
     {
-        trigger = GetComponent<Collider>();
+        trigger = GetComponent<Collider2D>();
         if (trigger == null)
         {
-            trigger = gameObject.AddComponent<SphereCollider>();
+            trigger = gameObject.AddComponent<CircleCollider2D>();
             trigger.isTrigger = true;
-            SphereCollider sphere = trigger as SphereCollider;
-            sphere.radius = 5f;
+            CircleCollider2D circle = trigger as CircleCollider2D;
+            circle.radius = 5f;
         }
     }
     void Awake()
     {
         if (string.IsNullOrWhiteSpace(respondToTag)) respondToTag = "Player";
-        trigger = GetComponent<Collider>();
+        trigger = GetComponent<Collider2D>();
         if (trigger.GetType() != typeof(MeshCollider)) trigger.isTrigger = true;
         rb = GetComponent<Rigidbody>();
         if (rb) rb.isKinematic = true; // Make sure the Rigidbody is kinematic to avoid physics interactions
