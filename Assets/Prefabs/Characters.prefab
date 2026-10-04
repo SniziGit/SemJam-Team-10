@@ -420,7 +420,7 @@ MonoBehaviour:
   footstepVFXPrefab: {fileID: 7358970957486587762, guid: 59f37b1a4afb58f41b761895695e0d7a, type: 3}
   footstepInterval: 0.4
   footstepSpawnPoint: {fileID: 3342618267130145529}
-  deathVFXPrefab: {fileID: 0}
+  deathVFXPrefab: {fileID: 1507487171920117256, guid: 192c5a098c3e9dc44b8fdce45cacbd33, type: 3}
 --- !u!114 &6180029889752316815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1116,7 +1116,7 @@ MonoBehaviour:
   footstepVFXPrefab: {fileID: 7358970957486587762, guid: 59f37b1a4afb58f41b761895695e0d7a, type: 3}
   footstepInterval: 0.4
   footstepSpawnPoint: {fileID: 5153708948910933550}
-  deathVFXPrefab: {fileID: 0}
+  deathVFXPrefab: {fileID: 1507487171920117256, guid: 192c5a098c3e9dc44b8fdce45cacbd33, type: 3}
 --- !u!114 &3936473812840177180
 MonoBehaviour:
   m_ObjectHideFlags: 0

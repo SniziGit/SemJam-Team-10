@@ -1,0 +1,84 @@
+/* Dialogue Graph Styles */
+
+/* Node styles */
+GraphView > #content > Node {
+    background-color: rgb(57, 57, 57);
+    border-radius: 5px;
+    border-width: 2px;
+    border-color: rgb(153, 153, 153);
+}
+
+GraphView > #content > Node.selected {
+    border-color: rgb(255, 215, 0);
+}
+
+/* Title container */
+GraphView > #content > Node > #title {
+    background-color: rgb(44, 44, 44);
+    padding: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+/* Input/Output ports */
+GraphView > #content > Node > #ports > Port {
+    border-radius: 5px;
+    border-width: 2px;
+}
+
+GraphView > #content > Node > #ports > Port:hover {
+    background-color: rgb(102, 102, 102);
+}
+
+/* Text fields */
+TextField {
+    background-color: rgb(37, 37, 37);
+    border-color: rgb(85, 85, 85);
+    color: rgb(204, 204, 204);
+    margin-bottom: 5px;
+}
+
+TextField:focus {
+    border-color: rgb(255, 215, 0);
+}
+
+/* Labels */
+Label {
+    color: rgb(204, 204, 204);
+    font-size: 11px;
+}
+
+/* Toolbar */
+Toolbar {
+    background-color: rgb(44, 44, 44);
+    border-bottom-width: 1px;
+    border-bottom-color: rgb(85, 85, 85);
+}
+
+Button {
+    background-color: rgb(57, 57, 57);
+    border-color: rgb(85, 85, 85);
+    color: rgb(204, 204, 204);
+    border-radius: 3px;
+    padding: 2px 8px;
+    margin-right: 2px;
+}
+
+Button:hover {
+    background-color: rgb(74, 74, 74);
+    border-color: rgb(255, 215, 0);
+}
+
+/* Grid background */
+GridBackground {
+    background-color: rgb(30, 30, 30);
+}
+
+/* Sticky Notes */
+StickyNote {
+    background-color: rgb(255, 250, 205);
+}
+
+StickyNote.selected {
+    border-color: rgb(255, 215, 0);
+}
