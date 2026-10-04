@@ -19,11 +19,21 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float groundCheckRadius = 0.2f;
     [SerializeField] LayerMask groundLayer;
 
+    [Header("Footstep Settings")]
+    [SerializeField] GameObject footstepVFXPrefab;
+    [SerializeField] float footstepInterval = 0.4f;
+    [SerializeField] Transform footstepSpawnPoint;
+
+    [Header("Death Settings")]
+    [SerializeField] GameObject deathVFXPrefab;
+
     private Rigidbody2D rb;
     private bool isGrounded;
     private Vector2 moveInput;
     private float defaultGravityScale;
     private Vector3 startPos;
+    private float footstepTimer;
+    private bool wasMoving;
 
     void Start()
     {
@@ -44,6 +54,7 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("KillPlane"))
         {
             Debug.Log("Player fell off the map. Resetting position.");
+            PlayDeath();
             transform.position = startPos;
             rb.linearVelocity = Vector3.zero;
         }
@@ -94,7 +105,8 @@ public class PlayerController : MonoBehaviour
     private void ApplyMovement()
     {
         // Apply acceleration based on input
-        if (Mathf.Abs(moveInput.x) > 0)
+        bool isMoving = Mathf.Abs(moveInput.x) > 0;
+        if (isMoving)
         {
             rb.AddForce(moveInput.x * acceleration * Vector2.right, ForceMode2D.Force);
             animator.SetFloat("Speed", 1);
@@ -103,6 +115,22 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetFloat("Speed", 0);
         }
+
+        // Handle footstep sounds and VFX
+        if (isGrounded && isMoving)
+        {
+            footstepTimer += Time.fixedDeltaTime;
+            if (footstepTimer >= footstepInterval)
+            {
+                footstepTimer = 0f;
+                PlayFootstep();
+            }
+        }
+        else
+        {
+            footstepTimer = footstepInterval;
+        }
+        wasMoving = isMoving;
 
         // Apply friction
         float currentFriction = isGrounded ? groundFriction : airFriction;
@@ -133,6 +161,37 @@ public class PlayerController : MonoBehaviour
        rb.gravityScale = 0f;
         yield return new WaitForSeconds(0.5f);
         rb.gravityScale = defaultGravityScale;
+    }
+
+    private void PlayFootstep()
+    {
+        // Play footstep sound
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlayFootstepSound();
+        }
+
+        // Spawn footstep VFX
+        if (footstepVFXPrefab != null)
+        {
+            Vector3 spawnPosition = footstepSpawnPoint != null ? footstepSpawnPoint.position : groundCheck.position;
+            Instantiate(footstepVFXPrefab, spawnPosition, Quaternion.identity);
+        }
+    }
+
+    private void PlayDeath()
+    {
+        // Play death sound
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlayDeathSound();
+        }
+
+        // Spawn death VFX at current position before reset
+        if (deathVFXPrefab != null)
+        {
+            Instantiate(deathVFXPrefab, transform.position, Quaternion.identity);
+        }
     }
 
     private void OnDrawGizmosSelected()

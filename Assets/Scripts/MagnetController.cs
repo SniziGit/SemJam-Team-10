@@ -22,6 +22,11 @@ public class MagnetController : MonoBehaviour
 
     public GameObject previewCircle;// the object that shows the range of the magnetic field, should be a circle with a transparent material
 
+    [Header("VFX Settings")]
+    [SerializeField] GameObject attractVFXPrefab;
+    [SerializeField] GameObject repelVFXPrefab;
+    [SerializeField] Transform vfxSpawnPoint;
+
     float counter = 0f;
     //initialise magnetic attraction
     Vector3 attractionVector = Vector3.zero;
@@ -68,6 +73,8 @@ public class MagnetController : MonoBehaviour
             previewCircle.SetActive(false);
             attractionVector = Vector3.zero;
             repulsionVector = Vector3.zero;
+            bool hasAttracted = false;
+            bool hasRepelled = false;
             //collect colliders
             Collider2D[] magneticInEnvironment = Physics2D.OverlapCircleAll(transform.position, currentMagneticFieldSize,Physics.AllLayers);
             foreach (Collider2D col in magneticInEnvironment)
@@ -80,10 +87,14 @@ public class MagnetController : MonoBehaviour
                     if(magneticObject.magneticPole != pole)
                     {
                         repulsionVector += magneticObject.transform.position - transform.position;
+                        AudioManager.Instance.PlayRepelSound();
+                        SpawnMagneticVFX(repelVFXPrefab);
                     }
                     else
                     {
                         attractionVector += transform.position - magneticObject.transform.position;
+                        AudioManager.Instance.PlayAttractSound();
+                        SpawnMagneticVFX(attractVFXPrefab);
                     }
                }
                 else
@@ -94,6 +105,7 @@ public class MagnetController : MonoBehaviour
             Vector3 finalVector = Vector3.Normalize(attractionVector + repulsionVector);
             if(playerController)playerController.StopGravity();
             if (thisMagnet) thisMagnet.rb.AddForce(finalVector * thisMagneticForce, ForceMode2D.Impulse);
+
             // apply magnetic force to all magnetic objects in range
             currentMagneticFieldSize = 0f;
             previewCircle.transform.localScale = Vector3.one * currentMagneticFieldSize;
@@ -119,6 +131,15 @@ public class MagnetController : MonoBehaviour
                 return false;
         }
     }
+    private void SpawnMagneticVFX(GameObject vfxPrefab)
+    {
+        if (vfxPrefab != null)
+        {
+            Vector3 spawnPosition = vfxSpawnPoint != null ? vfxSpawnPoint.position : transform.position;
+            Instantiate(vfxPrefab, spawnPosition, Quaternion.identity);
+        }
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
