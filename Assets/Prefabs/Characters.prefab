@@ -319,7 +319,7 @@ Transform:
   m_GameObject: {fileID: 1723893818668405614}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.71, y: -10.2, z: 0}
+  m_LocalPosition: {x: -1.94, y: -10.61, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -417,6 +417,10 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 9
+  footstepVFXPrefab: {fileID: 7358970957486587762, guid: 59f37b1a4afb58f41b761895695e0d7a, type: 3}
+  footstepInterval: 0.4
+  footstepSpawnPoint: {fileID: 3342618267130145529}
+  deathVFXPrefab: {fileID: 0}
 --- !u!114 &6180029889752316815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -434,12 +438,15 @@ MonoBehaviour:
   playerController: {fileID: 0}
   pole: 1
   thisMagnet: {fileID: 5533146329156827558}
-  thisMagneticForce: 10
+  thisMagneticForce: 15
   magneticFieldMin: 0.1
-  magneticFieldMax: 6
+  magneticFieldMax: 15
   currentMagneticFieldSize: 0
   fieldExpandSpeed: 2
   previewCircle: {fileID: 2423552496499853064}
+  attractVFXPrefab: {fileID: 0}
+  repelVFXPrefab: {fileID: 0}
+  vfxSpawnPoint: {fileID: 0}
 --- !u!114 &5533146329156827558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1008,7 +1015,7 @@ Transform:
   m_GameObject: {fileID: 8790168835119637427}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.51, y: -0.37, z: 0}
+  m_LocalPosition: {x: -1.51, y: -0.61, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1106,6 +1113,10 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 9
+  footstepVFXPrefab: {fileID: 7358970957486587762, guid: 59f37b1a4afb58f41b761895695e0d7a, type: 3}
+  footstepInterval: 0.4
+  footstepSpawnPoint: {fileID: 5153708948910933550}
+  deathVFXPrefab: {fileID: 0}
 --- !u!114 &3936473812840177180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1123,12 +1134,15 @@ MonoBehaviour:
   playerController: {fileID: 0}
   pole: 0
   thisMagnet: {fileID: 65341753859773983}
-  thisMagneticForce: 10
+  thisMagneticForce: 15
   magneticFieldMin: 0.1
-  magneticFieldMax: 6
+  magneticFieldMax: 15
   currentMagneticFieldSize: 0
   fieldExpandSpeed: 2
   previewCircle: {fileID: 2602595444696738789}
+  attractVFXPrefab: {fileID: 0}
+  repelVFXPrefab: {fileID: 0}
+  vfxSpawnPoint: {fileID: 0}
 --- !u!114 &65341753859773983
 MonoBehaviour:
   m_ObjectHideFlags: 0
